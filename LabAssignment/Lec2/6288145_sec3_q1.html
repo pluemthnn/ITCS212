@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>6288145 Sec3 Q1</title>
+    </head>
+    <body>
+        <form action="6288145_sec3_q1.html">
+            <fieldset>
+                <legend><h1>Registration</h1></legend>
+                <label for="txtStudentID">Student ID</label>
+                <input type="text" id="txtStudentID" required pattern="[0-9]{7}" title="#######"><br>
+                <label for="txtFirstname">First name</label>
+                <input type="text" id="txtFirstname" required pattern="[A-Za-z]+" title="Alphabet only"><br>
+                <label for="txtLastname">Last name</label>
+                <input type="text" id="txtLastname" pattern="[A-Za-z]+" title="Alphabet only"><br>
+                <label for="txtBirthday">Birthday</label>
+                <input type="date" id="txtBirthday" required min="2000-01-01"><br>
+                Gender:
+                <input type="radio" name="gender" value="IDK" checked>IDK
+                <input type="radio" name="gender" value="Female">Female
+                <input type="radio" name="gender" value="Male">Male<br>
+                Hobbies:<br>
+                <input type="checkbox" name="Hobbies" value="Basketball">Basketball
+                <input type="checkbox" name="Hobbies" value="Football">Football
+                <input type="checkbox" name="Hobbies" value="Programming">Programming<br>
+                <input type="checkbox" name="Hobbies" value="Photography">Photography
+                <input type="checkbox" name="Hobbies" value="Gaming">Gaming<br>
+
+                <button type="submit">submit</button>
+                <button type="reset">reset</button>
+                
+            </fieldset>
+        </form>
+    </body>
+</html>
