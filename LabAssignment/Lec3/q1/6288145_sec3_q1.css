@@ -58,3 +58,13 @@ img {
 img:hover {
   opacity: 0.8;
 }
+figcaption {
+  font-style: italic;
+}
+a.top {
+  text-align: center;
+  background-color: #d7dbdd;
+}
+a:hover.top {
+  background-color: #48c9b0;
+}
