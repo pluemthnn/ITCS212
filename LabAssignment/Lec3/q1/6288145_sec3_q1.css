@@ -4,7 +4,7 @@
     Section: 3
  ------------------------------------------------------------ */
 /* Starts your CSS here */
-html {
+* {
   font-family: sans-serif;
 }
 header,
@@ -45,4 +45,16 @@ article {
   margin: auto;
   padding-left: 20px;
   padding-right: 20px;
+}
+.images {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+img {
+  height: 300px;
+  border-radius: 10px;
+}
+img:hover {
+  opacity: 0.8;
 }
