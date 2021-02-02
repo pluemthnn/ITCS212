@@ -37,7 +37,7 @@ footer p {
   color: #fdfefe;
   text-decoration: none;
 }
-.navbar a:hover {
+.navbar li:hover {
   background-color: #85929e;
 }
 article {
