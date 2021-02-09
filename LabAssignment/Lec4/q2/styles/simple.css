@@ -1,38 +1,48 @@
 body {
-    font-family: arial;
+  font-family: arial;
 }
 
 div.headingBlock {
-    color: rgb(20, 20, 200);
+  color: rgb(20, 20, 200);
 }
 
 #simple {
-    color:    red;
+  color: red;
 }
 
-input, label, #doIt {
-    font-size: 200%;
+input,
+label,
+#doIt {
+  font-size: 200%;
 }
 
 #doIt {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 div {
-    margin: 2em;
+  margin: 2em;
 }
 
 .positive {
-    color: blue;
+  color: blue;
 }
 
 .negative {
-    color: red;
+  color: red;
+}
+
+.even {
+  color: darkcyan;
+}
+
+.odd {
+  color: rgb(242, 114, 71);
 }
 
 img {
-    height: 1em;
-    width: 1em;
-    vertical-align: middle;
-    padding: 10px;
+  height: 1em;
+  width: 1em;
+  vertical-align: middle;
+  padding: 10px;
 }
