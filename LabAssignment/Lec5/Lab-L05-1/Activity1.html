@@ -6,17 +6,18 @@
                 /* Constuctor */
                 constructor(_title, _year){
                     /* Properties: title and year */
-                    
+                    this._title = _title;
+                    this._year  = _year
                 }
 
                 /* Method */
                 getTitle(){
                     /* Format: "Title: [title]" */
-                    return "";
+                    return "Title: " + this._title;
                 }
                 getReleasedYear(){
                     /* Format: "Year: [year]" */ 
-                    return "";
+                    return "Year: " + this._year;
                 }
             }
             
@@ -24,14 +25,16 @@
                Example:
                let movie1 = new Movie("Harry Potter and the Goblet of Fire", 2005)
             */
-            
+            let movie1 = new Movie("Harry Potter and the Goblet of Fire", 2005)
+            let movie2 = new Movie("Spider-Man: Far Form Home", 2019)
 
             /* Call methods to display the following format in the console 
                Title: [title] released in Year: [year]
                Example: 
                Title: Harry Potter and the Goblet of Fire released in Year: 2005
             */
-
+            console.log(movie1.getTitle() + " released in " + movie1.getReleasedYear());
+            console.log(movie2.getTitle() + " released in " + movie2.getReleasedYear());
 
 
             /* ==========  Activity 1 ends here  ========== */

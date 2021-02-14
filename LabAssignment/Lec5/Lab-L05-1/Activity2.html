@@ -23,14 +23,16 @@
             class ThaiMovie extends Movie{
                 /* Constructor */
                 constructor(_title,_year,_titleTH){
-                    /* Properties */
-
+                    /* Properties form the super class */
+                    super(_title,_year);
+                     /* Properties only in subclass */
+                    this._titleTH = _titleTH;
                 }
 
                 /* Methods */
                 getFullTitle(){
                     /* Format: [titleTH]([title]) */
-                    return "";
+                    return this._titleTH + " (" + this.title + ")" + " released in " + super.getReleasedYear();
                 }
 
             }
@@ -39,14 +41,16 @@
                Example:
                let movie1 = new ThaiMovie("Mr Deu",2019,"มิสเตอร์ดื้อ กันท่าเหรียญทอง");
             */
-
+            let movie1 = new ThaiMovie("Bad Genius",2017,"ฉลาดเกมส์โกง");
+            let movie2 = new ThaiMovie("Mr Deu",2019,"มิสเตอร์ดื้อ กันท่าเหรียญทอง");
 
             /* Call methods to display the following format in the console 
                [titleTH]([title]) released in Year: [year]
                Example: 
                มิสเตอร์ดื้อ กันท่าเหรียญทอง (Mr Deu) released in Year: 2019
             */
-
+            console.log(movie1.getFullTitle());
+            console.log(movie2.getFullTitle());
 
 
              /* ==========  Activity 2 ends here  ========== */
