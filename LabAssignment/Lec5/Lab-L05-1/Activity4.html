@@ -127,9 +127,13 @@
     <script type="application/javascript">
     /* ----- Your JS code is here -----  */
         function generateMsg(){
-            /* 1. Hide <div>: div_form */
-            
+          let username = document.getElementById("txtUsername").value
+          let email = document.getElementById("txtEmail").value
+          let message = document.getElementById("txtMessages").value
 
+            /* 1. Hide <div>: div_form */
+          let element = document.getElementById("div_form");
+          element.style.display = 'none'; 
 
             /* 2. Generate the following "Thank you" message: 
                 Dear [customer username], 
@@ -142,16 +146,21 @@
                 Sincerely,
                 (Your name)
             */
-            
-
-
-
-
-
+            let tymsg = `
+                Dear ${username}, 
+                Thank you for your message. 
+                ------------------------
+                ${message}
+                ------------------------
+                We will contact you via ${email}
+                within 3 business days
+                Sincerely,
+                Thanwarat`
 
             /* 3. Show the generated message in the <div> "div_thk"*/
             
-
+            let div = document.getElementById("div_thk")
+            div.innerText = tymsg;
 
 
             
