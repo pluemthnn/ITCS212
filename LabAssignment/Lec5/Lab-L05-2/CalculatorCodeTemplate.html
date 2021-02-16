@@ -8,6 +8,7 @@
             height: 70px;
             margin-bottom: 5px;
             font-size: 20px;
+            border-radius: 20px;
         }
 
         input[type=text] {
@@ -18,20 +19,13 @@
             padding: 0 10px;
             font-size: 28px;
             text-align: right;
-        }
-
-        #numbtn {
-            background-color: lightgray;
-        }
-
-        #opbtn {
-            background-color:orange;
+            border-radius: 20px;
         }
     </style>
 </head>
 <body style="text-align: center">
     <form name="FormCalculator">
-        <h1>Simple Calculator</h1>
+        <h1 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Simple Calculator</h1>
         <input name="Screen" id="output" type="Text" size="24" value="0" readonly>
 
         <input id="btn7" style="background-color: lightgray;" type="Button" value="  7  " onclick="NumPressed(7)">
