@@ -1,0 +1,16 @@
+{
+  "name": "q1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "6288145_sec3_q1",
+  "scripts": {
+    "start": "nodemon 6288145_sec3_q1"
+  },
+  "author": "Thanwarat, Section 3, 6288145",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
