@@ -37,10 +37,21 @@ router.get("/cis-students", function (req, res){
     connection.query( sql, function (error, results) {
         if (error) throw error;
         console.log(results.length + " students returned");
+        return res.send(results);
+    });
+});
+
+router.get("/cis-students-list", function (req, res){
+    console.log("Retrieved all courses in tinycollege...");
+    let sql = "SELECT CONCAT (stu_fname,' ' , stu_lname) as stu_name, stu_gpa as GPA FROM student WHERE dept_code = 'CIS' ORDER BY stu_name ASC";
+
+    connection.query( sql, function (error, results) {
+        if (error) throw error;
+        console.log(results.length + " students returned");
         let output = "<h2>CIS Students</h2><ul>"
         results.forEach(student =>{
-            output += "<li>" + student.stu_name;
-            output += "&nbsp" + "(GPA:" + student.GPA+")";
+            output += "<li>" + student.stu_name
+            output += "&nbsp" + "(GPA:" + student.GPA+")"
             output += "</li>"
         });
         output += "</ul>"
