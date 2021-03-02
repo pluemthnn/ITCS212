@@ -24,7 +24,7 @@ router.post("/submit-form",function(req,res){
     const email = req.body.email;
     const messages = req.body.messages;
     console.log("Form submitted by " + name);
-    res.send(`<section style="font-family"><h1><b>Greeting <span style="background-color: pink">${name}</span></b></h1><br>
+    res.send(`<section style="font-family:Arial"><h1><b>Greeting <span style="background-color: pink">${name}</span></b></h1><br>
     The following message has been received: <span style="background-color: skyblue">${messages}</span><br>
     We will contact you via <span style="background-color: lightgreen">${email}</span></section>`);
     });
