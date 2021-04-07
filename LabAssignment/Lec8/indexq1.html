@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search Recipes</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="p-8">
+        <div class="bg-white flex items-center rounded-full shadow-xl">
+            <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="search"
+                type="search" placeholder="Search">
+
+            <div class="p-4">
+                <button
+                    class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center" onclick="getConferenceResponses()">
+                    find
+                </button>
+            </div>
+        </div>
+    </div>
+    <h1 class="text-center text-xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl" id="textlist">
+    </h1>
+
+    <div class="flex justify-center pt-3" id="output"></div>
+    </div>
+</body>
+<script>
+    function getConferenceResponses() {
+        let APi_key = "e409db5905de491e9c425da1f6300f6e";
+        let query = document.getElementById("search").value; // Get query from a textbox 
+        document.getElementById("textlist").innerHTML = "Food list";
+        console.log(query);
+
+        let rooturl ="https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
+            APi_key +
+            "&query=" +
+            query; //Request URL
+            
+        fetch(rooturl).then((res) => res.json()) // Get JSON from the response 
+        .then((data) => {
+            console.log(data); 
+            var list = `<ul class="list-disc list-inside">`;
+                for(const i of data.results){
+                    list += "<li>"+"<span>"+i.title+"</span>"
+                    +'<img src="'+i.image+'"width=\"200px\" height=\"200px\" style="margin:50px 50px">'+"</li>";
+                }
+                list += "</ul>";
+                document.getElementById("output").innerHTML = list;
+                    
+        })
+        .catch ((err) => console.log(err));
+        }
+</script>
+
+</html>

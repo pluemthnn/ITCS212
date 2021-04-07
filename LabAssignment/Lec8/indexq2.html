@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MOVIE</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="grid gap-4 p-8 flex items-center">
+
+        <div class="bg-white flex items-center rounded-full shadow-xl">
+            <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="search"
+                type="search" placeholder="Movie Title">
+
+            <div class="p-4">
+                <button
+                    class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center"
+                    onclick="getSearchTitle()">
+                    poster
+                </button>
+            </div>
+            <div class="p-4">
+                <button
+                    class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center"
+                    onclick="getSearchPlotByTitle()">
+                    Plot
+                </button>
+            </div>
+            <div class="p-4">
+                <button
+                    class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center"
+                    onclick="getSearchByIMDb()">
+                    IMDb
+                </button>
+            </div>
+        </div>
+    </div>
+    <h1 class="text-center text-xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl" id="textlist">
+    </h1>
+    <div class="" id="output"></div>
+    </div>
+</body>
+<script>
+    const APi_key = "77a7d84f";
+//----------- This function return poster and name of movie that contain title in input search -----------------
+    function getSearchTitle() {
+        let input = document.getElementById("search").value; // Get query from a textbox 
+        document.getElementById("textlist").innerHTML = "Poster movie";
+        console.log(input);
+
+        let rooturl = "http://www.omdbapi.com/?apikey=" +
+            APi_key +
+            "&s=" +
+            input; //Request URL
+
+        fetch(rooturl).then((res) => res.json()) // Get JSON from the response 
+            .then((movies) => {
+                console.log(movies);
+                // var list = `<ul class="list-disc list-inside">`;
+                //     for(let i of movies.Search){
+                //         console.log(i); 
+                //         list += "<li>"+"<span>"+i.Title+"</span>"
+                //         +'<img src="'+i.Poster+'"width=\"200px\" height=\"200px\" style="margin:50px 50px">'+"</li>";
+                //     }
+                //     list += "</ul>";
+                //     document.getElementById("output").innerHTML = list;
+                var list = "";
+                for (let i of movies.Search) {
+                    console.log(i);
+                    list += ` <div class="items-center">
+                    <dt class="items-center">
+                    <img src="${i.Poster}"width=\"200px\" height=\"200px\" style="margin:50px 50px">
+                    <p class="ml-16 text-lg leading-6 font-medium text-gray-900">${i.Title}</p>
+                    </dt>
+                    </div>`;
+                }
+                document.getElementById("output").innerHTML = list;
+
+            })
+            .catch((err) => console.log(err));
+    }
+//----------- This function return poster,name and plot of movie title in input search -----------------
+    function getSearchPlotByTitle() {
+        let input = document.getElementById("search").value; // Get query from a textbox 
+        document.getElementById("textlist").innerHTML = "Plot movie";
+        console.log(input);
+
+        let rooturl = "http://www.omdbapi.com/?apikey=" +
+            APi_key +
+            "&t=" +
+            input; //Request URL
+
+        fetch(rooturl).then((res) => res.json()) // Get JSON from the response 
+            .then((movies) => {
+                console.log(movies);
+                var list = ` <div class="container mx-auto">
+                    <dt>
+                    <img src="${movies.Poster}"width=\"200px\" height=\"200px\" style="margin:50px 50px"> 
+                    <p class="ml-16 text-lg leading-6 font-medium text-gray-900">${movies.Title}</p>
+                    <p class="ml-16 text-lg leading-6 ffont-normal text-gray-900">${movies.Plot}</p>
+                    </dt>
+                    </div>`;
+                document.getElementById("output").innerHTML = list;
+            })
+            .catch((err) => console.log(err));
+    }
+
+//----------- This function return poster,name and IMDB data of movie title in input search -----------------
+    function getSearchByIMDb() {
+        let input = document.getElementById("search").value; // Get query from a textbox 
+        document.getElementById("textlist").innerHTML = "IMDb report";
+        console.log(input);
+
+        let rooturl = "http://www.omdbapi.com/?apikey=" +
+            APi_key +
+            "&t=" +
+            input; //Request URL
+
+        fetch(rooturl).then((res) => res.json()) // Get JSON from the response 
+            .then((movies) => {
+                console.log(movies);
+                var list = "";
+                    console.log(movies);
+                    list += ` <div class="">
+                    <dt>
+                    <img src="${movies.Poster}"width=\"200px\" height=\"200px\" style="margin:50px 50px">
+                    <p class="ml-16 text-lg leading-6 font-medium text-gray-900">${movies.Title}</p>
+                    <p class="ml-16 text-lg leading-6 ffont-normal text-gray-900"> IMDb id: ${movies.imdbID}</p>
+                    <p class="ml-16 text-lg leading-6 ffont-normal text-gray-900"> IMDb rating: ${movies.imdbRating}</p>
+                    <p class="ml-16 text-lg leading-6 ffont-normal text-gray-900"> IMDb votes: ${movies.imdbVotes}</p>
+                    </dt>
+                    </div>`;
+                document.getElementById("output").innerHTML = list;
+
+            })
+            .catch((err) => console.log(err));
+    }
+</script>
+
+</html>
