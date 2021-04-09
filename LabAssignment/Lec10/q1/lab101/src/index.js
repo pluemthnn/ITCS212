@@ -21,8 +21,12 @@ class NameForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.fname + this.state.lname + this.state.age);
     event.preventDefault();
+    if(this.props.type === 'special'){
+        alert(`Hello, ${this.state.fname} ${this.state.lname}\nYour nationality is ${this.state.nation}`);
+    }else{
+      alert(`Hello, ${this.state.fname} ${this.state.lname}\nYour age is ${this.state.age}`);
+    }
   }
 
   render() {
@@ -43,8 +47,9 @@ class NameForm extends React.Component {
         {this.props.type === 'special' && <><label>
           Pick your nationality:
           <select name="nation" value={this.state.nation} onChange={this.handleChange}>
-            <option value="">Grapefruit</option>
-            <option value="">Lime</option>
+            <option value="wakandian">Wakandian</option>
+            <option value="martian">Martian</option>
+            <option value="ninja">Ninja</option>
           </select>
         </label><br />
           <label>
@@ -59,8 +64,8 @@ class NameForm extends React.Component {
     );
   }
 }
-
+//if want normal just replace to special or dont type anythings.
 ReactDOM.render(
-  <NameForm type='special' />,
+  <NameForm type='special'/>,
   document.getElementById('root')
 );
