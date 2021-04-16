@@ -6,7 +6,7 @@ async function callStudentWS(url, method, sentData = {}) {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json' },
-                body: JSON.stringify(sentData)
+            body: JSON.stringify(sentData)
         });
         data = await response.json();
     } 
